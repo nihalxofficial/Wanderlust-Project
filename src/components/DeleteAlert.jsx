@@ -1,5 +1,6 @@
 "use client";
 
+import { deleteDestination } from "@/lib/action";
 import { TrashBin } from "@gravity-ui/icons";
 import { AlertDialog, Button } from "@heroui/react";
 import { redirect } from "next/navigation";
@@ -7,22 +8,15 @@ import { redirect } from "next/navigation";
 export function DeleteAlert({ destination }) {
   const { _id, destinationName } = destination;
 
-  const handleDelete = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destination/${_id}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-      credentials: "include"
-    });
-
-    const data = await res.json();
-    redirect('/destinations')
-    console.log(data);
-  };
+  const handleDelete = async ()=> {
+      const data = await deleteDestination(_id);
+      if(data.deletedCount>0){
+          redirect('/destinations');
+      }
+  }
   return (
     <AlertDialog>
-      <Button className={"text-red-500 rounded-none"} variant="outline">
+      <Button className={"text-red-500 rounded-2xl flex items-center"} variant="outline">
         <TrashBin /> Delete
       </Button>
       <AlertDialog.Backdrop>

@@ -1,3 +1,4 @@
+import { DeleteAlert } from '@/components/DeleteAlert';
 import { EditModal } from '@/components/EditModal';
 import { getDestinationById } from '@/lib/data';
 import Image from 'next/image';
@@ -15,7 +16,7 @@ const DestinationDetailsPage = async({params}) => {
     <div className="max-w-4xl mx-auto my-20">
       <div className="flex  items-center gap-3 justify-end mt-5 mb-3">
         <EditModal destination={destination} />
-        {/* <DeleteAlert destination={destination}/> */}
+        <DeleteAlert destination={destination}/>
       </div>
       <Image
         className="w-full h-100 object-cover"

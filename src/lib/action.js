@@ -36,3 +36,15 @@ export const editDestination = async(id, formData)=>{
     }
     return data;
 }
+
+export const deleteDestination = async(id)=> {
+    const res = await fetch(api+"/destination/"+id, {
+        method: "DELETE"
+    })
+    const data = await res.json();
+    if(!res.ok) return;
+    if(data.deletedCount >0){
+
+    }
+    return data;
+}

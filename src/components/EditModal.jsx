@@ -37,7 +37,7 @@ export function EditModal({ destination }) {
   return (
     <Modal>
 
-      <Button variant="secondary" className={"rounded-xl"}>
+      <Button variant="secondary" className={"rounded-2xl"}>
         <BiEdit /> Edit
       </Button>
 

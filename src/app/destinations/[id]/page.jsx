@@ -12,7 +12,7 @@ const DestinationDetailsPage = async({params}) => {
     const { imageUrl, price, destinationName, duration, country, description } = destination;
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto my-20">
       <div className="flex  items-center gap-3 justify-end mt-5 mb-3">
         <EditModal destination={destination} />
         {/* <DeleteAlert destination={destination}/> */}

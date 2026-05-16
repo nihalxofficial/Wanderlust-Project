@@ -3,12 +3,10 @@ import { getDestinations } from "@/lib/data";
 
 const DestinationPage = async () => {
     const destinations = await getDestinations();
-    
-
 
     return (
-        <div className="max-w-7xl mx-auto">
-            <h1>All destinations</h1>
+        <div className="max-w-7xl mx-auto my-20">
+            <h1 className="text-3xl text-cyan-500 font-bold text-center mb-5">All destinations</h1>
 
 
             <div className="grid grid-cols-4 gap-5">

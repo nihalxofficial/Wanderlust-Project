@@ -5,3 +5,9 @@ export const getDestinations = async()=> {
     const data = res.json();
     return data;
 }
+
+export const getDestinationById = async(id)=>{
+    const res = await fetch(api+"/destination/"+id);
+    const data = res.json();
+    return data;
+}

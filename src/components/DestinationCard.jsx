@@ -10,7 +10,7 @@ const DestinationCard = ({ destination }) => {
   return (
     <div className="border">
       <Image
-        className="h-[200px] object-cover"
+        className="h-50 object-cover"
         alt={destinationName}
         src={imageUrl}
         height={400}

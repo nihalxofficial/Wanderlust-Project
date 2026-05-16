@@ -3,7 +3,6 @@ import { getDestinations } from "@/lib/data";
 
 const DestinationPage = async () => {
     const destinations = await getDestinations();
-    console.log(destinations);
     
 
 

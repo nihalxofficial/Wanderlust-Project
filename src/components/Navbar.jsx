@@ -10,7 +10,6 @@ const Navbar = () => {
     const { data: session, isPending, error } = authClient.useSession()
     const user = session?.user;
 
-    console.log(user);
     const handleSignOut = async () => {
         await authClient.signOut({
             fetchOptions: {

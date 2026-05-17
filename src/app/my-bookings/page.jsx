@@ -1,3 +1,4 @@
+import BookingCancelAlert from '@/components/BookingCancelAlert';
 import { auth } from '@/lib/auth';
 import { authClient } from '@/lib/auth-client';
 import { getBookingsByID } from '@/lib/data';
@@ -25,7 +26,7 @@ const session = await auth.api.getSession({
                             width={200}
                             className='rounded-xl'
                         />
-                        <div className='space-y-2.5'>
+                        <div className='space-y-1.5'>
                             <h1 className="font-bold text-2xl">{booking.destinationName}</h1>
                             <p>
                                 {new Date(booking.departureDate).toLocaleDateString("en-US", {
@@ -41,7 +42,7 @@ const session = await auth.api.getSession({
                                 ${booking.price}
                             </p>
 
-                            {/* <BookingCancelAlert bookingId={booking._id} /> */}
+                            <BookingCancelAlert bookingId={booking._id} />
                         </div>
                     </Card>
                 ))}

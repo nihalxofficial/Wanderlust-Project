@@ -14,6 +14,7 @@ import {
 import { authClient } from "@/lib/auth-client";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import GoogleSignUpButton from "@/components/GoogleSignUpButton";
 
 const SignUpPage = () => {
     const router = useRouter();
@@ -108,7 +109,7 @@ const SignUpPage = () => {
                     <Separator />
                 </div>
                 <div>
-                    <Button variant="outline" className={'w-full '}><FcGoogle /> Sign in with Google</Button>
+                    <GoogleSignUpButton></GoogleSignUpButton>
                 </div>
             </Card>
         </div>

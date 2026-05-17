@@ -1,5 +1,6 @@
 "use client";
 
+import GoogleSignUpButton from "@/components/GoogleSignUpButton";
 import { authClient } from "@/lib/auth-client";
 import { Card, Separator } from "@heroui/react";
 import {
@@ -23,7 +24,7 @@ const LoginPage = () => {
         const { data, error } = await authClient.signIn.email({
             email: userData.email,
             password: userData.password,
-            rememberMe: true,
+            // rememberMe: true,
         });
         console.log(data);
         if(data){
@@ -73,12 +74,7 @@ const LoginPage = () => {
                     <Separator />
                 </div>
                 <div>
-                    <Button
-                        variant="outline"
-                        className={"w-full"}
-                    >
-                        <FcGoogle /> Sign in with Google
-                    </Button>
+                    <GoogleSignUpButton/>
                 </div>
             </Card>
         </div>

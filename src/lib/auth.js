@@ -10,10 +10,24 @@ await client.connect();
 const db = client.db("wanderlust");
 
 export const auth = betterAuth({
-  database: mongodbAdapter(db, {
-    client
-  }),
-  emailAndPassword: { 
-    enabled: true, 
-  }, 
+	database: mongodbAdapter(db, {
+		client,
+	}),
+	emailAndPassword: {
+		enabled: true,
+	},
+	baseURL: process.env.BETTER_AUTH_URL,
+	socialProviders: {
+		google: {
+			clientId: process.env.GOOGLE_CLIENT_ID,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+		},
+	},
+	// account: {
+	// 	accountLinking: {
+	// 		enabled: true,
+	// 		trustedProviders: ["google", "github","email-password"],
+	// 		allowDifferentEmails: true,
+	// 	},
+	// },
 });

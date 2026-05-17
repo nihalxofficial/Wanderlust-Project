@@ -8,6 +8,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - MongoDB
 - BetterAuth
 - MongoDB Atlas
+- React Toast
 
 ## Getting Started
 

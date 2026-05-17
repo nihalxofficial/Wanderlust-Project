@@ -11,10 +11,30 @@ import {
     Label,
     TextField,
 } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const SignUpPage = () => {
-    const onSubmit = () => {
-
+    const router = useRouter();
+    const onSubmit = async(e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const userData = Object.fromEntries(formData.entries());
+        
+        const { data, error } = await authClient.signUp.email({
+            name: userData.name,
+            email: userData.email,
+            password: userData.password, 
+            image: userData.image,
+        });
+        if(data){
+            toast.success("SignUp Successful! 🎉");
+            router.push("/");
+        }
+        if(error){
+            toast.error(error.message);
+        }
     }
     return (
         <div className="max-w-7xl mx-auto my-20">
@@ -88,7 +108,7 @@ const SignUpPage = () => {
                     <Separator />
                 </div>
                 <div>
-                    <Button  variant="outline" className={'w-full '}><FcGoogle /> Sign in with Google</Button>
+                    <Button variant="outline" className={'w-full '}><FcGoogle /> Sign in with Google</Button>
                 </div>
             </Card>
         </div>

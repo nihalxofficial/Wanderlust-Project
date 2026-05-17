@@ -11,3 +11,9 @@ export const getDestinationById = async(id)=>{
     const data = res.json();
     return data;
 }
+
+export const getBookingsByID = async(userId)=>{
+    const res = await fetch(api+"/booking/"+userId);
+    const data = res.json();
+    return data;
+}

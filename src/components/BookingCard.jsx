@@ -2,7 +2,6 @@
 import { authClient } from '@/lib/auth-client';
 import { Button, Calendar, Card, DateField, DatePicker, Label } from '@heroui/react';
 import { useState } from 'react';
-import {getLocalTimeZone, today} from "@internationalized/date";
 import { addBooking } from '@/lib/action';
 import { toast } from 'react-toastify';
 

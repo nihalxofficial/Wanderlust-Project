@@ -1,8 +1,16 @@
+"use client"
+import { deleteBooking } from '@/lib/action';
 import { TrashBin } from '@gravity-ui/icons';
 import { AlertDialog, Button } from '@heroui/react';
-import React from 'react';
+import { toast } from 'react-toastify';
 
-const BookingCancelAlert = () => {
+const BookingCancelAlert = ({bookingId}) => {
+    const handleCancelBooking = async()=>{
+        const data = await deleteBooking(bookingId);
+        if(data.deletedCount > 0){
+            toast.warning("Booking Cancelled!")
+        }
+    }
     return (
         <AlertDialog>
             <Button
@@ -28,7 +36,7 @@ const BookingCancelAlert = () => {
                             <Button slot="close" variant="tertiary">
                                 Cancel
                             </Button>
-                            <Button slot="close" variant="danger">
+                            <Button onClick={handleCancelBooking} slot="close" variant="danger">
                                 Delete
                             </Button>
                         </AlertDialog.Footer>

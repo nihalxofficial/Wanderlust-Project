@@ -59,3 +59,14 @@ export const addBooking = async(booking)=>{
     if(!res.ok) return;
     return data;
 }
+
+export const deleteBooking = async(bookingId)=>{
+    const res = await fetch(api+"/booking/"+bookingId, {
+        method: "DELETE"
+    })
+    const data = await res.json();
+    if(data.deletedCount > 0){
+            revalidatePath("/my-bookings")
+        }
+    return data;
+}
